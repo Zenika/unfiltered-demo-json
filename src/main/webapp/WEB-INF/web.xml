@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+        version="2.5">
+        
+	<display-name>Unfiltered-demo</display-name>
+    <description>A simple implementation of RESTful/JSON services using Unfiltered</description>
+    
+	<filter>
+		<filter-name>SayHello</filter-name>
+		<filter-class>com.zenika.unfiltered.demo.server.SayHelloFilter</filter-class>
+	</filter>
+	
+	<filter>
+		<filter-name>Cocktail</filter-name>
+		<filter-class>com.zenika.unfiltered.demo.plan.CocktailsPlan</filter-class>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>SayHello</filter-name>
+		<url-pattern>/hello/*</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>Cocktail</filter-name>
+		<url-pattern>/cocktails/*</url-pattern>
+	</filter-mapping>
+</web-app>

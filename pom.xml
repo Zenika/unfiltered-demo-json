@@ -1,0 +1,100 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.zenika.unfiltered.demo</groupId>
+	<artifactId>unfiltered-demo-json</artifactId>
+	<version>1.0</version>
+	<packaging>war</packaging>
+
+	<name>A simple implementation of RESTful/JSON services using Unfiltered</name>
+
+	<properties>
+		<scala.version>2.9.2</scala.version>
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>scala-tools.org</id>
+			<name>Scala-tools Maven2 Repository</name>
+			<url>http://scala-tools.org/repo-releases</url>
+		</repository>
+	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>scala-tools.org</id>
+			<name>Scala-tools Maven2 Repository</name>
+			<url>http://scala-tools.org/repo-releases</url>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<build>
+		<sourceDirectory>src/main/scala</sourceDirectory>
+		<testSourceDirectory>src/test/scala</testSourceDirectory>
+		<plugins>
+			<plugin>
+				<groupId>org.scala-tools</groupId>
+				<artifactId>maven-scala-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>compile</goal>
+							<goal>testCompile</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<scalaVersion>${scala.version}</scalaVersion>
+					<launchers>
+						<launcher>
+							<id>server</id>
+							<mainClass>com.zenika.unfiltered.demo.server.Server</mainClass>
+						</launcher>
+					</launchers>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+
+
+	<dependencies>
+		<dependency>
+			<groupId>net.databinder</groupId>
+			<artifactId>unfiltered-filter_${scala.version}</artifactId>
+			<version>0.6.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>net.databinder</groupId>
+			<artifactId>unfiltered-jetty_${scala.version}</artifactId>
+			<version>0.6.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>net.databinder</groupId>
+			<artifactId>unfiltered-netty_${scala.version}</artifactId>
+			<version>0.6.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>net.databinder</groupId>
+			<artifactId>unfiltered-json_${scala.version}</artifactId>
+			<version>0.6.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>net.databinder</groupId>
+			<artifactId>unfiltered-util_${scala.version}</artifactId>
+			<version>0.6.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>net.liftweb</groupId>
+			<artifactId>lift-json</artifactId>
+			<version>2.0</version>
+		</dependency>
+
+	</dependencies>
+</project>
